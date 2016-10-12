@@ -1,9 +1,13 @@
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 var path = require('path');
 module.exports = {
   entry: './client/app.js',
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'app.bundle.js'
+  },
+  devServer: {
+    contentBase: path.join(__dirname, 'dist')
   },
   module: {
     loaders: [
@@ -19,4 +23,9 @@ module.exports = {
       }
     ]
   },
+  plugins: [
+    new CopyWebpackPlugin([
+      { from: path.join(__dirname, 'client', 'index.html'), to: path.join(__dirname, 'dist') }
+    ])
+  ]
 };

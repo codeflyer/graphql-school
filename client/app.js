@@ -1,6 +1,3 @@
-/**
- * Created by davide on 12/10/16.
- */
+[1,2,3].map(n => console.log(n + 1));
 
-var a = 0;
-[1,2,3].map(n => n + 1);
+console.log('And more');
