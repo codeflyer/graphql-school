@@ -7,7 +7,13 @@ module.exports = {
     filename: 'app.bundle.js'
   },
   devServer: {
-    contentBase: path.join(__dirname, 'dist')
+    contentBase: path.join(__dirname, 'dist'),
+    proxy: {
+      '/graphql': {
+        target: 'http://localhost:4000',
+        secure: false
+      }
+    }
   },
   module: {
     loaders: [
@@ -25,7 +31,8 @@ module.exports = {
   },
   plugins: [
     new CopyWebpackPlugin([
-      { from: path.join(__dirname, 'client', 'index.html'), to: path.join(__dirname, 'dist') }
+      { from: path.join(__dirname, 'client', 'index.html'), to: path.join(__dirname, 'dist') },
+      { from: path.join(__dirname, 'client', 'graphiql.html'), to: path.join(__dirname, 'dist') }
     ])
   ]
 };
