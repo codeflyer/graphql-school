@@ -8,7 +8,10 @@
   },
   "author": "Davide Fiorello <davide@codeflyer.com> (http://github.com/codeflyer/)",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2"
+  },
   "devDependencies": {
     "babel": "^6.5.2",
     "babel-core": "^6.17.0",

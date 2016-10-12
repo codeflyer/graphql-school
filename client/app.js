@@ -1,3 +1,7 @@
-[1,2,3].map(n => console.log(n + 1));
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-console.log('And more');
+ReactDOM.render(
+    <h1>Hello, world!</h1>,
+    document.getElementById('app')
+);
