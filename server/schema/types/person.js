@@ -1,16 +1,17 @@
 import {
     GraphQLObjectType,
-    GraphQLID,
     GraphQLString
 } from 'graphql';
+
+import {
+    globalIdField
+} from 'graphql-relay';
 
 import { NameType } from './name';
 import { LocationType } from './location';
 
 export const PersonTypeFieldsList = {
-  id: {
-    type: GraphQLID
-  },
+  id: globalIdField(),
   name: {
     type: NameType
   },

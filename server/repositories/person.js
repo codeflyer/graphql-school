@@ -1,7 +1,7 @@
 import usersData from './dataset';
 
 export function getPerson(id) {
-  return usersData.find(user => user.id === id);
+  return usersData.find(user => String(user.id) === String(id));
 }
 
 export function getPeople(offset, count) {
