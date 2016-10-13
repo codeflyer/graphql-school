@@ -5,6 +5,9 @@ export function getPerson(id) {
 }
 
 export function getPeople(offset, count) {
-  return usersData.map(user => user)
-      .slice(offset, count + offset);
+  return new Promise((resolve, reject) => {
+    const list = usersData.map(user => user)
+        .slice(offset, count + offset);
+    setTimeout(() => resolve(list), 100);
+  })
 }
