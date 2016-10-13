@@ -7,6 +7,7 @@ import {
 
 var count = 0;
 
+import { Person } from './instances/person';
 import { PeopleList } from './lists/people';
 
 const queryDefinitions = new GraphQLObjectType({
@@ -24,6 +25,7 @@ const queryDefinitions = new GraphQLObjectType({
         return count;
       }
     },
+    person: Person,
     people: PeopleList
   }
 });
