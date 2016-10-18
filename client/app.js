@@ -6,7 +6,8 @@ import Relay, {
     Route
 } from 'react-relay';
 
-import {PeopleList} from './components/peopleList';
+import { PeopleList } from './components/peopleList';
+import { PersonSheet } from './components/personSheet';
 
 // The default url for graphql is "/graphql" then the following NetworkLayer definition is not strictly required
 Relay.injectNetworkLayer(
@@ -23,12 +24,23 @@ class AppRoute extends Route {
   static routeName = 'AppRoute';
 }
 
+// {person(id:"cGVyc29uOjA="){id email}}
+// http://localhost:8080/?userID=cGVyc29uOjA%3D
+class PersonRoute extends Route {
+  static paramDefinitions = {};
+  static queries = {
+    person: () => Relay.QL`query { person(id:$personId) }`
+  };
+  static routeName = 'PersonRoute';
+}
+
 class Root extends React.Component {
   render() {
+    console.log(this.props)
     return (
         <RootContainer
-            Component={PeopleList}
-            route={new AppRoute()}
+            Component={PersonSheet}
+            route={new PersonRoute({personId : "cGVyc29uOjA="})}
         />
     );
   }

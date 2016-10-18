@@ -7,6 +7,7 @@ class PeopleListComponent extends React.Component {
   render() {
     return (
         <div>
+          <h1>Person List</h1>
           {this.props.peopleview.people.map(person => <PeopleListItem key={person.id} person={person}/>)}
         </div>
     );
