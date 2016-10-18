@@ -4,26 +4,33 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start-server": "babel-node ./server/app.js",
+    "start-client": "webpack-dev-server",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "update-schema": "babel-node ./scripts/updateSchema.js"
   },
   "author": "Davide Fiorello <davide@codeflyer.com> (http://github.com/codeflyer/)",
   "license": "ISC",
   "dependencies": {
+    "babel-relay-plugin": "^0.9.3",
     "express-graphql": "^0.5.4",
     "graphiql": "^0.7.8",
     "graphql": "^0.7.2",
     "graphql-relay": "^0.4.3",
     "react": "^15.3.2",
-    "react-dom": "^15.3.2"
+    "react-dom": "^15.3.2",
+    "react-relay": "^0.9.3",
+    "relay": "^0.8.0-1"
   },
   "devDependencies": {
-    "babel": "^6.5.2",
-    "babel-core": "^6.17.0",
+    "babel-cli": "^6.16.0",
+    "babel-core": "^6.16.0",
     "babel-loader": "^6.2.5",
     "babel-plugin-transform-runtime": "^6.15.0",
     "babel-preset-es2015": "^6.16.0",
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
+    "babel-preset-stage-3": "^6.17.0",
     "copy-webpack-plugin": "^3.0.1",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.16.2"

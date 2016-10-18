@@ -5,11 +5,10 @@ import {
     GraphQLString,
 } from 'graphql';
 
-var count = 0;
-
 import { Person } from './instances/person';
 import { PeopleList } from './lists/people';
 
+var count = 0;
 const queryDefinitions = new GraphQLObjectType({
   name: 'RootQueryType',
   fields: {
@@ -24,6 +23,15 @@ const queryDefinitions = new GraphQLObjectType({
       resolve() {
         return count;
       }
+    },
+    viewer : {
+      type: new GraphQLObjectType({
+        name: 'viewer',
+        fields: () => ({
+          people: PeopleList
+        })
+      }),
+      resolve: () => ''
     },
     person: Person,
     people: PeopleList

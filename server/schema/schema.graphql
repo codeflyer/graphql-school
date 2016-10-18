@@ -1,0 +1,49 @@
+schema {
+  query: RootQueryType
+  mutation: RootMutationType
+}
+
+type location {
+  street: String
+  city: String
+  state: String
+  postcode: String
+}
+
+type name {
+  title: String
+  first: String
+  last: String
+}
+
+type person {
+  # The ID of an object
+  id: ID!
+  name: name
+  location: location
+  email: String
+  phone: String
+  cell: String
+}
+
+type RootMutationType {
+  # Updates the count
+  updateCount: Int
+}
+
+type RootQueryType {
+  hello: String
+  count: Int
+  viewer: viewer
+
+  # Retrieve a person
+  person(id: ID!): person
+
+  # Retrieve the people list
+  people(count: Int, offset: Int): [person]
+}
+
+type viewer {
+  # Retrieve the people list
+  people(count: Int, offset: Int): [person]
+}
